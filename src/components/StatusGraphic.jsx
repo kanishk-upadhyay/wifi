@@ -27,7 +27,7 @@ const StatusGraphic = () => {
         <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="relative w-full max-w-lg aspect-square flex items-center justify-center"
         >
             {/* Main Circle Graphic Background */}
@@ -64,9 +64,13 @@ const StatusGraphic = () => {
             </div>
 
             {/* Connection Failed Badge */}
-            <div className="absolute bottom-20 left-0 bg-red-500 text-white px-6 py-3 rounded-lg font-mono font-bold text-lg shadow-xl animate-[shake_2.5s_ease-in-out_infinite] z-20">
+            <motion.div
+                animate={{ x: [0, -5, 5, -5, 5, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1, ease: "easeInOut" }}
+                className="absolute bottom-20 left-0 bg-red-500 text-white px-6 py-3 rounded-lg font-mono font-bold text-lg shadow-xl z-20"
+            >
                 CONNECTION FAILED
-            </div>
+            </motion.div>
 
             {/* Tech Status Card */}
             <div className="absolute bottom-0 right-[-20px] bg-gray-900/95 text-green-400 p-6 rounded-2xl shadow-2xl backdrop-blur-md border border-gray-700 min-w-[240px] z-30 font-mono text-sm leading-relaxed">

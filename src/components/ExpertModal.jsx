@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const ExpertModal = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsOpen(true);
-        }, 1200); // Delay appearance
-        return () => clearTimeout(timer);
-    }, []);
+    const [isOpen, setIsOpen] = useState(true);
 
     if (!isOpen) return null;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             {/* Backdrop */}
-            <div
-                className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-black/40 backdrop-blur-sm"
                 onClick={() => setIsOpen(false)}
-            ></div>
+            />
 
             {/* Modal Content */}
-            <div className="relative bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl animate-[slideUp_0.4s_ease-out]">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                className="relative bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl"
+            >
                 <button
                     onClick={() => setIsOpen(false)}
                     className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
@@ -58,7 +60,7 @@ const ExpertModal = () => {
                         By submitting you agree to our Terms of Service and Privacy Policy.
                     </p>
                 </form>
-            </div>
+            </motion.div>
         </div>
     )
 }
