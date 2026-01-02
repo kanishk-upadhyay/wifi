@@ -2,7 +2,9 @@ import Hero from './components/Hero'
 import StatusGraphic from './components/StatusGraphic'
 import ExpertModal from './components/ExpertModal'
 
+
 import HelpAccordion from './components/HelpAccordion'
+import WifiProvider from './components/WifiProvider'
 import Section from './components/Section'
 import ContactSection from './components/ContactSection'
 
@@ -23,6 +25,12 @@ function App() {
             <div className="flex justify-center lg:justify-end">
               <StatusGraphic />
             </div>
+          </div>
+        </Section>
+
+        <Section>
+          <div className="max-w-2xl mx-auto w-full">
+            <WifiProvider />
           </div>
         </Section>
 
