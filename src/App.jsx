@@ -28,7 +28,7 @@ function App() {
           </div>
         </Section>
 
-        <Section>
+        <Section className="!min-h-0 !py-12">
           <div className="max-w-2xl mx-auto w-full">
             <WifiProvider />
           </div>
