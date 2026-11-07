@@ -12,6 +12,15 @@ const ContactSection = () => {
         return () => window.removeEventListener('trigger-contact-attention', handleAttention);
     }, []);
 
+    const openModal = () => {
+        window.dispatchEvent(new Event('open-expert-modal'));
+    };
+
+    const scrollToStatus = () => {
+        const el = document.getElementById('home');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <div className="max-w-4xl mx-auto w-full mt-12 mb-20 px-4" id="contact-support-section">
             <div className="bg-gray-900 rounded-3xl p-8 lg:p-12 text-center text-white shadow-2xl">
@@ -20,10 +29,16 @@ const ContactSection = () => {
                     Our network experts are standing by to assist you with advanced diagnostics and repairs.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button className={`bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg w-full sm:w-auto ${attention ? 'animate-pulse' : ''}`}>
+                    <button
+                        onClick={openModal}
+                        className={`bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg w-full sm:w-auto cursor-pointer ${attention ? 'animate-pulse' : ''}`}
+                    >
                         Contact Support
                     </button>
-                    <button className="bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors w-full sm:w-auto">
+                    <button
+                        onClick={scrollToStatus}
+                        className="bg-transparent border-2 border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors w-full sm:w-auto cursor-pointer"
+                    >
                         View System Status
                     </button>
                 </div>

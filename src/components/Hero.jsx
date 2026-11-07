@@ -1,6 +1,17 @@
 import { motion } from 'framer-motion'
 
 const Hero = () => {
+    const scrollToTroubleshoot = () => {
+        const el = document.getElementById('troubleshoot-wizard');
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
+
+    const openExpertHelp = () => {
+        window.dispatchEvent(new Event('open-expert-modal'));
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -16,30 +27,14 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <button
-                    onClick={() => {
-                        const el = document.getElementById('contact-support-section');
-                        if (el) {
-                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            setTimeout(() => {
-                                window.dispatchEvent(new Event('trigger-contact-attention'));
-                            }, 800);
-                        }
-                    }}
-                    className="bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    onClick={scrollToTroubleshoot}
+                    className="bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
                 >
                     Get Help
                 </button>
                 <button
-                    onClick={() => {
-                        const el = document.getElementById('contact-support-section');
-                        if (el) {
-                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            setTimeout(() => {
-                                window.dispatchEvent(new Event('trigger-contact-attention'));
-                            }, 800);
-                        }
-                    }}
-                    className="bg-white text-black border-2 border-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    onClick={openExpertHelp}
+                    className="bg-white text-black border-2 border-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
                 >
                     Connect Now
                 </button>

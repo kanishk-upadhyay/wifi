@@ -1,12 +1,12 @@
-# WiFi QR Sharing Tool
+# WiFi Diagnostic & Troubleshooting Assistant
 
-Generate instant scannable QR codes to share your Wi-Fi network without revealing your password in plain text. Built with React 19, Framer Motion, and Tailwind CSS.
+An interactive, responsive web application for diagnosing home network issues, finding ISP-specific troubleshooting steps, and connecting with technical support. Built with React 19, Framer Motion, and Tailwind CSS.
 
 [![Live Demo](https://img.shields.io/badge/demo-surge-purple?style=flat-square)](https://kanishk-wifi.surge.sh)
 [![GitHub Pages](https://img.shields.io/badge/mirror-gh--pages-blue?style=flat-square)](https://kanishk-upadhyay.github.io/wifi/)
 
 ## Features
-- ⚡ Instant QR code generation for WPA/WPA2/WPA3 and open networks
-- 🎨 Smooth animations powered by Framer Motion
-- 🔒 Client-side only — your Wi-Fi credentials never leave your browser
-- 📱 Mobile-friendly responsive interface
+- 🔍 Guided 3-step diagnostic wizard for common WiFi and ISP connectivity issues
+- 🎨 Fluid motion design and responsive layout powered by Framer Motion
+- 📱 Mobile-friendly glassmorphism interface
+- ⚡ Client-side diagnosis with instant feedback
