@@ -9,39 +9,25 @@
     0% {
       transform: translate(0px, 0px) scale(1);
     }
-
     33% {
       transform: translate(30px, -50px) scale(1.1);
     }
-
     66% {
       transform: translate(-20px, 20px) scale(0.9);
     }
-
     100% {
       transform: translate(0px, 0px) scale(1);
     }
   }
 
   @keyframes shake {
-
-    0%,
-    100% {
+    0%, 100% {
       transform: translateX(0);
     }
-
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
+    10%, 30%, 50%, 70%, 90% {
       transform: translateX(-5px);
     }
-
-    20%,
-    40%,
-    60%,
-    80% {
+    20%, 40%, 60%, 80% {
       transform: translateX(5px);
     }
   }
@@ -51,7 +37,6 @@
       transform: translateY(20px);
       opacity: 0;
     }
-
     to {
       transform: translateY(0);
       opacity: 1;
@@ -59,8 +44,84 @@
   }
 }
 
+/* Infinite Auto-Scrolling CSS Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee2 35s linear infinite;
+}
+
+/* Pulsing radar waves for NOC mode */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.0);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radar-pulse 3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
 @layer utilities {
   .glass-card {
     @apply bg-white/80 backdrop-blur-sm shadow-2xl;
+  }
+  .glass-noc {
+    @apply bg-slate-950/80 backdrop-blur-md border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)];
+  }
+}
+
+/* Clean 1-Page Emergency Protocol Print Rules */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, nav, .print\:hidden, [class*="animate-"] {
+    display: none !important;
+  }
+  .printable-protocol {
+    position: static !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    border: 1px solid black !important;
+    background: white !important;
+    color: black !important;
+    padding: 0.5in !important;
+  }
+  .printable-protocol * {
+    color: black !important;
+    border-color: #999 !important;
+    background: transparent !important;
   }
 }
